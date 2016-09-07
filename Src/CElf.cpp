@@ -3,15 +3,15 @@
 //
 /// \author GPU Developer Tools
 /// \file $File: //devtools/main/Common/Src/CElf/Src/CElf.cpp $
-/// \version $Revision: #19 $
+/// \version $Revision: #24 $
 /// \brief  A set of classes to allow easy manipulation of ELF
 ///         binaries in memory.
 //
 //=====================================================================
-// $Id: //devtools/main/Common/Src/CElf/Src/CElf.cpp#19 $
-// Last checkin:   $DateTime: 2016/04/07 13:16:11 $
-// Last edited by: $Author: callan $
-// Change list:    $Change: 567789 $
+// $Id: //devtools/main/Common/Src/CElf/Src/CElf.cpp#24 $
+// Last checkin:   $DateTime: 2016/08/31 10:59:46 $
+// Last edited by: $Author: yuou $
+// Change list:    $Change: 581014 $
 //=====================================================================
 
 #include <map>
@@ -733,7 +733,7 @@ CElf::Read(
             return false;
         }
 
-        CElfSection* section;
+        CElfSection* section = NULL;
 
         if (sh_type == SHT_SYMTAB)
         {
@@ -955,7 +955,7 @@ CElf::Write(vector<char>& vBinary)
     }
 
     // Empty symbol table string table.
-    if (nullptr != m_SymbolTable)
+    if (NULL != m_SymbolTable)
     {
 
         CElfStringTable* symbolStrings =
@@ -1147,8 +1147,8 @@ CElf::UnsupportedSectionType(
     {
         //case SHT_REL:
         case SHT_RELA:
-        case SHT_HASH:
-        case SHT_DYNAMIC:
+        //case SHT_HASH:
+        //case SHT_DYNAMIC:
         case SHT_SHLIB:
         case SHT_GROUP:
         case SHT_SYMTAB_SHNDX:
