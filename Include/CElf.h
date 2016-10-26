@@ -50,7 +50,7 @@
     #include "elf32.h"
     #include "elf64.h"
 #endif
-
+#undef max
 class CElf;
 class CElfProgramSegment;
 class CElfSection;
